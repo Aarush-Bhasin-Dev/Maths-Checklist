@@ -98,6 +98,20 @@ main {
   padding: 8px 0;
   transition: all 0.3s ease;
 }
+.checklist label {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 8px 0;
+  transition: all 0.3s ease;
+  flex-wrap: wrap;     /* ✅ ensures long text breaks properly */
+  width: 100%;         /* ✅ forces each label to its own line */
+}
+.checklist label {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
 
 .checklist input[type="checkbox"] {
   margin-right: 10px;
@@ -192,3 +206,4 @@ main {
     max-width: 250px;
   }
 }
+

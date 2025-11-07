@@ -1,0 +1,249 @@
+/* ...existing code... */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    /* premium blue → purple → pink gradient */
+    background: linear-gradient(135deg, #0ea5f9 0%, #6d28d9 50%, #ff4da6 100%);
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* Optional container styling to improve contrast */
+main {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+/* ...existing code... */
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    /* premium blue → purple → pink gradient (animated) */
+    background: linear-gradient(135deg, #0ea5f9 0%, #6d28d9 50%, #ff4da6 100%);
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    animation: gradientShift 12s ease infinite;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* Optional container styling to improve contrast */
+main {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* animated background keyframes */
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* ...existing code... */
+/* ...existing code... */
+/* Header / nav theme matching animated gradient */
+:root{
+    --bg-glass: rgba(255,255,255,0.06);
+    --border-glow: rgba(255,77,166,0.18);
+    --accent: #ff90bf; /* pink accent */
+    --text: rgba(255,255,255,0.98);
+    --header-height: 72px;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border-bottom: 1px solid var(--border-glow);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 6px 18px rgba(13,12,26,0.25);
+}
+
+/* layout container */
+.site-header .container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* brand / title */
+.site-header .brand{
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: 0.2px;
+    padding: 6px 8px;
+    display: inline-block;
+}
+
+/* nav */
+.site-header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+.site-header nav li { margin-left: 0.5rem; }
+
+/* single Home button — pill style that matches theme */
+.site-header .nav-btn{
+    display: inline-block;
+    padding: 8px 14px;
+    background: linear-gradient(90deg, rgba(255,77,166,0.12), rgba(109,40,217,0.08));
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 4px 14px rgba(109,40,217,0.08), inset 0 -1px 0 rgba(255,255,255,0.02);
+    font-weight: 600;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+/* hover / focus states */
+.site-header .nav-btn:hover,
+.site-header .nav-btn:focus{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(109,40,217,0.14);
+    background: linear-gradient(90deg, rgba(255,77,166,0.18), rgba(109,40,217,0.12));
+    outline: none;
+}
+
+/* responsive tweaks */
+@media (max-width: 520px){
+    .site-header .brand { font-size: 1rem; }
+    .site-header .nav-btn { padding: 7px 10px; font-size: 0.95rem; }
+}
+/* ...existing code... */
+
+
+
+
+
+
+/* ...existing code... */
+/* translucent white footer that matches the header/theme */
+.site-footer {
+    position: relative;
+    z-index: 40;
+    padding: 1.25rem 0;
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
+    border-top: 1px solid rgba(255,255,255,0.16);
+    box-shadow: 0 -8px 30px rgba(13,12,26,0.12);
+}
+
+/* reuse the same container width as header for alignment */
+.site-footer .container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* footer text: subtle dark text for readable contrast on the translucent white */
+.site-footer .footer-text {
+    margin: 0;
+    color: rgba(15,15,20,0.92);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-align: center;
+}
+
+/* small accent dot or separator if you want a subtle visual detail */
+.site-footer .footer-text::before{
+    content: "•";
+    display: inline-block;
+    margin-right: .6rem;
+    color: var(--accent, #ff90bf);
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* responsive: slightly smaller text on narrow screens */
+@media (max-width:520px){
+    .site-footer { padding: .9rem 0; }
+    .site-footer .footer-text { font-size: 0.9rem; }
+}
+/* ...existing code... */
+
+/* ...existing code... */
+/* translucent white footer that matches the header/theme */
+.site-footer {
+    position: relative;
+    z-index: 40;
+    padding: 1.25rem 0;
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.08));
+    border-top: 1px solid rgba(255,255,255,0.16);
+    box-shadow: 0 -8px 30px rgba(13,12,26,0.12);
+}
+
+/* reuse the same container width as header for alignment */
+.site-footer .container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* footer text: subtle dark text for readable contrast on the translucent white */
+.site-footer .footer-text {
+    margin: 0;
+    color: rgba(15,15,20,0.92);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-align: center;
+}
+
+/* small accent dot or separator if you want a subtle visual detail */
+.site-footer .footer-text::before{
+    content: "•";
+    display: inline-block;
+    margin-right: .6rem;
+    color: var(--accent, #ff90bf);
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* responsive: slightly smaller text on narrow screens */
+@media (max-width:520px){
+    .site-footer { padding: .9rem 0; }
+    .site-footer .footer-text { font-size: 0.9rem; }
+}
+/* ...existing code... */

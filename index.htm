@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>My Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+   
+<header class="site-header">
+    <div class="container">
+        <a class="brand" href="index.htm">Maths Ncert Checklist</a>
+        <nav>
+            <ul>
+                <li><a class="nav-btn" href="index.htm">Home</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ✅ CHECKLIST START -->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<div class="checklist">
+  <h2>Math Chapters Checklist</h2>
+  <form id="chapterChecklist">
+    <label><input type="checkbox" value="1" title="">CH - 1 Real Numbers</label>
+    <label><input type="checkbox" value="2" title="">CH - 2 Polynomials</label>
+    <label><input type="checkbox" value="3" title="">CH - 3 Pair of Linear Equations in Two Variables</label>
+    <label><input type="checkbox" value="4" title="">CH - 4 Quadratic Equations</label>
+    <label><input type="checkbox" value="5" title="">CH - 5 Arithmetic Progressions</label>
+    <label><input type="checkbox" value="6" title="">CH - 6 Triangles</label>
+    <label><input type="checkbox" value="7" title="">CH - 7 Coordinate Geometry</label>
+    <label><input type="checkbox" value="8" title="">CH - 8 Introduction to Trigonometry</label>
+    <label><input type="checkbox" value="9" title="">CH - 9 Some Applications of Trigonometry</label>
+    <label><input type="checkbox" value="10" title="">CH - 10 Circles</label>
+    <label><input type="checkbox" value="11" title="">CH - 11 Areas Related to Circles</label>
+    <label><input type="checkbox" value="12" title="">CH - 12 Surface Areas and Volumes</label>
+    <label><input type="checkbox" value="13" title="">CH - 13 Statistics</label>
+    <label><input type="checkbox" value="14" title="">CH - 14 Probability</label>
+  </form>
+</div>
+
+<!-- Meme popup -->
+<div id="memePopup" class="meme-popup" style="display:none;">
+  <img id="memeImage" src="" alt="meme">
+  <p>🎉 Well done! Keep going!</p>
+</div>
+
+<style>
+  .checklist {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: transparent;
+    font-family: "Fredoka", sans-serif;
+    animation: fadeIn 1s ease;
+  }
+
+  .checklist h2 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    color: #222;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    animation: slideDown 0.8s ease;
+  }
+
+  .checklist label {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .checklist input[type="checkbox"] {
+    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    accent-color: #1e90ff;
+    transition: transform 0.2s ease;
+  }
+
+  .checklist input[type="checkbox"]:checked {
+    transform: scale(1.2);
+  }
+
+  .checked {
+    text-decoration: line-through;
+    color: #777;
+  }
+
+  .meme-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    text-align: center;
+    z-index: 1000;
+    animation: popIn 0.4s ease forwards;
+  }
+
+  .meme-popup img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .meme-popup p {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes popIn {
+    from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  }
+</style>
+
+<script>
+  const checklist = document.getElementById('chapterChecklist');
+  const saved = JSON.parse(localStorage.getItem('chapterChecklist')) || {};
+
+  // Random tooltips
+  const tooltips = [
+    "Try clicking this box to lock in your progress 😄",
+    "Boom! Another step toward victory 💥",
+    "Click it — your brain deserves a medal 🧠🏅",
+    "Progress feels good, doesn’t it? 🌈",
+    "Tick-tock! Let’s rock this checklist ⏰🤘",
+    "Go on, give it a click 😎",
+    "Achievement unlocked 🏆",
+    "One click closer to greatness 🚀"
+  ];
+
+  // ✅ Updated meme list (reliable URLs)
+ const memes = [
+  "https://media1.tenor.com/m/Z6uHH2k0_vEAAAAd/understandable-have-nice-day.gif",
+  "https://media1.tenor.com/m/_05d217PgTYAAAAd/thumbs-up-internet.gif",
+  "https://media1.tenor.com/m/linnpdQg7DoAAAAd/jim-carrey-funny.gif",
+  "https://media1.tenor.com/m/QRsW7WXaSkUAAAAd/ice‑cube‑shocked.gif",
+  "https://media1.tenor.com/m/28x0lttrUdoAAAAd/hakla‑shahrukh‑hakla.gif",
+  "https://media1.tenor.com/m/Km11GYbvYY0AAAAd/good‑morning.gif"
+];
+
+
+
+  // Restore state & assign random tooltips
+  checklist.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.title = tooltips[Math.floor(Math.random() * tooltips.length)];
+
+    if (saved[checkbox.value]) {
+      checkbox.checked = true;
+      checkbox.parentElement.classList.add('checked');
+    }
+
+    checkbox.addEventListener('change', () => {
+      saved[checkbox.value] = checkbox.checked;
+      localStorage.setItem('chapterChecklist', JSON.stringify(saved));
+      checkbox.parentElement.classList.toggle('checked', checkbox.checked);
+      if (checkbox.checked) showMemePopup();
+    });
+  });
+
+  // Meme popup
+  function showMemePopup() {
+    const popup = document.getElementById('memePopup');
+    const memeImage = document.getElementById('memeImage');
+    memeImage.src = memes[Math.floor(Math.random() * memes.length)];
+    popup.style.display = 'block';
+    popup.style.opacity = '1';
+
+    setTimeout(() => {
+      popup.style.transition = 'opacity 0.6s ease';
+      popup.style.opacity = '0';
+      setTimeout(() => popup.style.display = 'none', 600);
+    }, 2500);
+  }
+</script>
+<!-- ✅ CHECKLIST END -->
+
+
+
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <p class="footer-text">© 2025 Aarush Bhasin — Keep learning, one problem at a time.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
